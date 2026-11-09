@@ -74,11 +74,15 @@ def fn_ProductosAReponer_lst(productos_lst):
     return a_reponer_lst
 
 
-def fn_RegistrarIncidencia_lst(mensaje_str, historial_lst=[]):
+def fn_RegistrarIncidencia_lst(mensaje_str, historial_lst=None):
     """
     Añade una incidencia a un historial y lo devuelve.
     Si no se indica ningún historial, se empieza uno nuevo (vacío).
     """
+    #Aqui faltaba que si no hay ningun historial se empiece uno de cero
+    if historial_lst is None:
+        historial_lst=[]
+        
     historial_lst.append(mensaje_str)
 
     return historial_lst
