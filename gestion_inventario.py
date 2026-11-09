@@ -31,7 +31,7 @@ def fn_ValorPorCategoria_dic(productos_lst):
     for producto_dic in productos_lst:
         categoria_str = producto_dic["categoria"]
         precio_fl = producto_dic["precio"]
-        #Aqui para calcular no hay que pedir el minimo, hay que pedir el stock para que calcule el valor ocn los productos que hay actualmente
+        #Aqui para calcular no hay que pedir el minimo, hay que pedir el stock para que calcule el valor con los productos que hay actualmente
         unidades_int = producto_dic["stock"]
         valor_fl = precio_fl * unidades_int
 
@@ -67,7 +67,7 @@ def fn_ProductosAReponer_lst(productos_lst):
 
     for producto_dic in productos_lst:
         bajo_bool = producto_dic["stock"] <= producto_dic["minimo"]
-#Aqui pedia if bajo_bool or cuando realmente debe de ser bajo_bool and not porque no hay que imprimir los productos pendientes 
+#Aqui pedia if bajo_bool or cuando realmente debe de ser bajo_bool and not porque no hay que imprimir los productos pendientes, entonces al usar and not se asegura de que los productos que imprima no sean pendientes
         if bajo_bool and not producto_dic["pendiente"]:
             a_reponer_lst.append(producto_dic["nombre"])
 
